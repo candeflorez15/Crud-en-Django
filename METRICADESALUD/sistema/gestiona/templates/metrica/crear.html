@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agregar Nueva Metrica {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        Crear una Metrica
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la Metrica</h4>
+
+        {% include 'metrica/form.html'%}
+
+
+    </div>
+    <div class="card-footer text-muted">
+       
+    </div>
+</div>
+
+{% endblock %}

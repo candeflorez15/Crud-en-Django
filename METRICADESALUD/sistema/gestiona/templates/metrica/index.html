@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block titulo %} Seguimiento de los Pacientes {% endblock %}
+
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo paciente</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Pacientes</h4>
+        
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Frecuencia Cardiaca</th>
+                        <th scope="col">Saturación de Oxigeno</th>
+                        <th scope="col">Nivel de Stress</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for paciente in metrica %}
+
+                    <tr>
+                        <td>{{ paciente.id }}</td>
+                        <td>{{ paciente.nombre }}</td>
+                        <td>{{ paciente.apellidos }}</td>
+                        <td>{{ paciente.peso }}</td>
+                        <td>{{ paciente.edad }}</td>
+                        <td>{{ paciente.frecuencia }}</td>
+                        <td>{{ paciente.saturacion }}</td>
+                        <td>{{ paciente.stress }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' paciente.id %}" role="button">Editar</a>
+                            | 
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' paciente.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+      
+    </div>
+</div>
+
+
+{% endblock %}
